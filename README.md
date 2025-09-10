@@ -1,69 +1,76 @@
-# React + TypeScript + Vite
+# Starter Kit React Pro / Professional React Starter Kit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un starter kit moderne pour **React + TypeScript + Tailwind v3 + React Router**.  
+A modern starter kit for **React + TypeScript + Tailwind v3 + React Router**.
 
-Currently, two official plugins are available:
+## Stack utilisée / Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18 + TypeScript  
+- Tailwind CSS v3  
+- React Router DOM (createBrowserRouter)  
+- Zustand (gestion d’état / state management)  
+- Framer Motion (animations)  
+- React Hook Form + Zod (formulaires et validation / forms and validation)  
+- React Hot Toast (notifications)
 
-## Expanding the ESLint configuration
+## Structure du projet / Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+src/components/ 
+# Composants réutilisables / Reusable components
+- Layout.tsx 
+# Layout principal avec Header/Footer et <Outlet /> / Main layout with Header/Footer and <Outlet />
+- Header.tsx # Composant Header / Header component
+- Footer.tsx # Composant Footer / Footer component
+pages/ 
+# Pages pour chaque route / Pages for each route
+- Home.tsx
+- About.tsx
+- Contact.tsx
+# Configuration du router / Router configuration
+- router.tsx 
+- App.tsx
+- main.tsx
+# Styles globaux et imports Tailwind / Global styles with Tailwind imports
+styles/
+- index.css 
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Usage / Usage
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Les routes sont gérées via createBrowserRouter et <Outlet />.
+Routes are handled via createBrowserRouter and <Outlet />.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Le Layout contient Header et Footer réutilisables.
+The Layout contains reusable Header and Footer components.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Ajouter de nouvelles pages dans src/pages et les connecter dans router.tsx.
+Add new pages in src/pages and connect them in router.tsx.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Tailwind CSS est prêt à être utilisé dans tes composants.
+Tailwind CSS is ready to use in your components.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Scripts utiles / Useful scripts
+
+- npm run dev      # Lancer le serveur de dev / Start dev server
+- npm run build    # Construire le projet pour la production / Build project for production
+- npm run preview  # Tester la build locale / Preview local build
+
+## Conventions / Conventions
+
+- Components / Composants → réutilisables et modulaires dans src/components
+
+- Pages → chaque route a sa page dédiée dans src/pages
+
+- Styles / Styles → Tailwind dans src/styles/index.css, classes utilitaires dans composants
+
+- Git commits → suivre la convention Conventional Commits
+
+## Notes / Notes
+
+Starter kit conçu pour être scalable et facile à personnaliser.
+Starter kit designed to be scalable and easy to customize.
+
+Possibilité de créer plusieurs layouts (ex: public/admin) en ajoutant de nouveaux composants Layout.
+You can create multiple layouts (e.g., public/admin) by adding new Layout components.
+
+Toutes les dépendances de base sont installées et prêtes à l’emploi.
+All core dependencies are installed and ready to use.
