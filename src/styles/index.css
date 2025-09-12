@@ -2,72 +2,190 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
 @layer base {
-    html {
-        font-size: 100%;
-    }
+  html {
+    font-size: 100%;
+  }
+
   :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
-        --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
-        --radius: 0.5rem;
-    }
+    /* Fonts */
+    --font-sans: 'Inter', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+
+    /* Palette globale */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --transition: 0.3s ease-in-out;
+
+    /* UI principales */
+    --primary: 240 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 190 90% 55%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Composants spécifiques */
+    --header-background: var(--primary);
+    --header-foreground: var(--primary-foreground);
+    --footer-background: var(--secondary);
+    --footer-foreground: var(--secondary-foreground);
+    --button-background: var(--primary);
+    --button-foreground: var(--primary-foreground);
+    --input-background: var(--muted);
+    --input-foreground: var(--foreground);
+    --alert-background: var(--destructive);
+    --alert-foreground: var(--destructive-foreground);
+    --sidebar-background: var(--secondary);
+    --sidebar-foreground: var(--foreground);
+    --modal-background: var(--background);
+    --modal-foreground: var(--foreground);
+    --badge-background: var(--accent);
+    --badge-foreground: var(--accent-foreground);
+    --tooltip-background: var(--foreground);
+    --tooltip-foreground: var(--background);
+
+    /* Charts */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+  }
+
+  /* Dark mode */
   .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
-    }
-}
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
 
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
 
+    /* Composants spécifiques dark */
+    --header-background: var(--primary);
+    --header-foreground: var(--primary-foreground);
+    --footer-background: var(--secondary);
+    --footer-foreground: var(--secondary-foreground);
+    --button-background: var(--primary);
+    --button-foreground: var(--primary-foreground);
+    --input-background: var(--muted);
+    --input-foreground: var(--foreground);
+    --alert-background: var(--destructive);
+    --alert-foreground: var(--destructive-foreground);
+    --sidebar-background: var(--secondary);
+    --sidebar-foreground: var(--foreground);
+    --modal-background: var(--background);
+    --modal-foreground: var(--foreground);
+    --badge-background: var(--accent);
+    --badge-foreground: var(--accent-foreground);
+    --tooltip-background: var(--foreground);
+    --tooltip-foreground: var(--background);
 
-@layer base {
+    /* Charts dark (optionnel) */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  /* Base utilities */
   * {
     @apply border-border;
-    }
+  }
+
   body {
-    @apply bg-background text-foreground;
-    }
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+
+  a {
+    @apply text-primary hover:text-primary-foreground transition-colors;
+  }
+
+  button {
+    @apply rounded-lg transition-all;
+    border-radius: var(--radius);
+    background-color: var(--button-background);
+    color: var(--button-foreground);
+  }
+
+  input, textarea, select {
+    @apply rounded-md transition-all;
+    background-color: var(--input-background);
+    color: var(--input-foreground);
+    border-color: var(--border);
+  }
+
+  header {
+    @apply bg-header-background text-header-foreground;
+  }
+
+  footer {
+    @apply bg-footer-background text-footer-foreground;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground rounded-lg shadow;
+  }
+
+  .popover {
+    @apply bg-popover text-popover-foreground rounded-lg shadow-lg;
+  }
+
+  .alert {
+    @apply bg-alert-background text-alert-foreground rounded-md p-4;
+  }
+
+  .sidebar {
+    @apply bg-sidebar-background text-sidebar-foreground rounded-lg shadow;
+  }
+
+  .modal {
+    @apply bg-modal-background text-modal-foreground rounded-lg shadow-lg;
+  }
+
+  .badge {
+    @apply bg-badge-background text-badge-foreground rounded-full px-2 py-1 text-xs;
+  }
+
+  .tooltip {
+    @apply bg-tooltip-background text-tooltip-foreground rounded px-2 py-1 text-sm;
+  }
 }
